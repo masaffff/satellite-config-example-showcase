@@ -30,7 +30,7 @@ func main() {
 	}
 	log.Println("Starting up " + version)
 	http.HandleFunc("/helloworld", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "<body style="background-color:blue;"><h1>Hello, World " + version + "!</h1><body>")
+		fmt.Fprintf(w, "Welcome to IBM Technology Showcase: " + version + "!</h1><body>")
 	})
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
