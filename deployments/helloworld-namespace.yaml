@@ -1,6 +1,6 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: toolchain-ns
+  name: mfweb1
   labels:
-    name: toolchain-ns
+    name: mfweb1
