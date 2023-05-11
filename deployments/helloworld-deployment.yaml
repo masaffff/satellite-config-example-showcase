@@ -6,7 +6,7 @@ metadata:
     razee/watch-resource: lite
     dummy: test
   name: helloworld-app
-  namespace: toolchain-ns
+  namespace: mfweb1
 spec:
   replicas: 1
   selector:
@@ -18,6 +18,6 @@ spec:
         app: helloworld-app
     spec:
       containers:
-      - image: icr.io/satellite-config/helloworld
+      - image: hub.docker.com/masaf/showcaseweb:v1
         name: helloworld-app
         imagePullPolicy: Always
