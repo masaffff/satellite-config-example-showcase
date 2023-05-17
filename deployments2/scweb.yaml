@@ -1,0 +1,59 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: scweb
+  labels:
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: scweb-app
+    razee/watch-resource: lite
+    dummy: test
+  name: sc-app
+  namespace: scweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scweb-app
+  template:
+    metadata:
+      labels:
+        app: sc-app
+    spec:
+      containers:
+      - image: docker.io/masaf/showcasestaticweb:v2
+        name: scweb-app
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scweb-svc
+  namespace: scweb
+  labels:
+    app: scweb-svc
+    razee/watch-resource: lite
+spec:
+  selector:
+    app: sceb-app
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: scweb-route
+  namespace: scweb
+  labels:
+    razee/watch-resource: lite
+spec:
+  path: "/"
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: scweb-svc
