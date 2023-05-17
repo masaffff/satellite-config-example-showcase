@@ -1,7 +1,7 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: helloworld-route
+  name: mfstaticweb-route
   namespace: mfweb1
   labels:
     razee/watch-resource: lite
@@ -11,4 +11,4 @@ spec:
     targetPort: 8080
   to:
     kind: Service
-    name: helloworld-svc
+    name: mfstaticweb-svc
