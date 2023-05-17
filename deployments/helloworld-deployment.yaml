@@ -18,6 +18,6 @@ spec:
         app: helloworld-app
     spec:
       containers:
-      - image: docker.io/masaf/showcasestaticweb:v1
+      - image: docker.io/masaf/showcasestaticweb:v2
         name: helloworld-app
         imagePullPolicy: Always
