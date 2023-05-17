@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: helloworld-app
+    app: mfstaticweb-app
     razee/watch-resource: lite
     dummy: test
-  name: helloworld-app
+  name: mfstaticweb-app
   namespace: mfweb1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helloworld-app
+      app: mfstaticweb-app
   template:
     metadata:
       labels:
-        app: helloworld-app
+        app: mfstaticweb-app
     spec:
       containers:
       - image: docker.io/masaf/showcasestaticweb:v2
-        name: helloworld-app
+        name: mfstaticweb-app
         imagePullPolicy: Always
