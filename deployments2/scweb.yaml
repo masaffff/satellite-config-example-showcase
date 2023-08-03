@@ -24,7 +24,7 @@ spec:
         app: scweb-app
     spec:
       containers:
-      - image: docker.io/masaf/showcasestaticweb:v2
+      - image: docker.io/masaf/showcasestaticweb:v1
         name: scweb-app
         imagePullPolicy: Always
 ---
